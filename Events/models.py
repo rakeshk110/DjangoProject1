@@ -24,3 +24,6 @@ class Booking(models.Model):
     payment_status = models.CharField(max_length=200, default='pending')
     qr_code = models.ImageField(upload_to='tickets/', blank=True, null=True)
     booked_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f" {self.user.username} - {self.events.title}"
